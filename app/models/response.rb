@@ -1,5 +1,8 @@
 require 'analytic/response_analytic'
 require 'lingua/en/readability'
+# Get latest commit time of submitted link-to content
+require 'octokit'
+require 'uri'
 
 class Response < ActiveRecord::Base
   include ResponseAnalytic
@@ -258,10 +261,6 @@ class Response < ActiveRecord::Base
        }
     }).deliver_now
   end
-
-  # Get latest commit time of submitted link-to content
-  require 'octokit'
-  require 'uri'
 
   def check_update (participant)
 
